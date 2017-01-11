@@ -29,25 +29,74 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h3>Easy and familiar usage</h3>
+				<p>React Component Libraries @ ERGO Direkt</p>
+			</section>
+			<section>
+				<h2>Requirements</h2>
+				<hr />
+				<p class="fragment">Easy and familiar installation</p>
+				<p class="fragment">Minimal footprint</p>
+				<p class="fragment">Minimal usage requirements</p>
+				<p class="fragment">Explicite dependencies</p>
+				<p class="fragment">Universal usage</p>
+			</section>
+			<section>
+				<h3>Easy and familiar installation</h3>
 				<hr/>
 				<p class="fragment" style="text-decoration:line-through">code copy &amp; paste</p>
-<p class="fragment" style="text-decoration:line-through">manual copying files from git repo</p>
-<pre class="fragment"><code class="hljs lang-bash" data-trim contenteditable>$ npm install ed-react-components</code></pre>
-<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+				<p class="fragment" style="text-decoration:line-through">manual copying files from git repo</p>
+				<pre class="fragment"><code class="hljs lang-bash" data-trim contenteditable>$ npm install ed-react-components</code></pre>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
 // Tarif.js
 import { Button, Wizard } from 'ed-react-components'
-					</code></pre>
+				</code></pre>
 
-</section>
-<section>Slide 2</section>
-</div>
-</div>
+			</section>
+			<section>
+				<h3>Minimal footprint (1)</h3>
+				<hr/>
+				<p class="fragment">React and ReactDOM as dependencies instead of including them</p>
+				<p class="fragment">minified</p>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// Tarif.js
+// import { Button } from 'ed-react-components'
+import Button from 'ed-react-components/lib/Button'
+				</code></pre>
+			</section>
+			<section>
+				<h3>Minimal footprint (2)</h3>
+				<hr/>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// App.js
+import { Button } from 'react-bootstrap'
+// import Button from 'react-bootstrap/lib/Button'
+				</code></pre>
+				<img class="fragment" alt="small" src="img/big.png" />
 
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// App.js
+// import { Button } from 'react-bootstrap'
+import Button from 'react-bootstrap/lib/Button'
+				</code></pre>
+				<img class="fragment" alt="small" src="img/small.png" />
+			</section>
+			<section>
+				<h3>Minimal usage requirements</h3>
+				<hr/>
+				<p class="fragment" style="text-decoration:line-through">ES6 / ES7</p>
+				<p class="fragment" style="text-decoration:line-through">Typescript / Flow</p>
+				<p class="fragment" style="text-decoration:line-through">JSX</p>
+				<p class="fragment">down-compiled to ES5</p>
+			</section>
 
-<script>
+
+		</div>
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
 		// More info https://github.com/hakimel/reveal.js#configuration
 		Reveal.initialize({
 			history: true,

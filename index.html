@@ -35,20 +35,18 @@
 
 
 			<section>
-				<h2>Requirements</h2>
+				<h4>High level requirements</h4>
 				<hr />
 				<p class="fragment">Easy and familiar installation</p>
 				<p class="fragment">Minimal footprint</p>
-				<p class="fragment">Minimal usage requirements</p>
-				<p class="fragment">Explicite dependencies</p>
+				<p class="fragment">Minimal usage prerequisites</p>
+				<p class="fragment">Explicite prerequisites</p>
 				<p class="fragment">Universal usage</p>
 			</section>
 
 
-
-
 			<section>
-				<h3>Easy and familiar installation</h3>
+				<h4>Easy and familiar installation</h4>
 				<hr/>
 				<p class="fragment" style="text-decoration:line-through">code copy &amp; paste</p>
 				<p class="fragment" style="text-decoration:line-through">manual copying files from git repo</p>
@@ -61,7 +59,28 @@ import { Button, Wizard } from 'ed-react-components'
 
 
 			<section>
-				<h3>Publish</h3>
+				<h4>Minimal usage prerequisites</h4>
+				<hr/>
+				<p class="fragment" style="text-decoration:line-through">ES6 / ES7</p>
+				<p class="fragment" style="text-decoration:line-through">Typescript / Flow</p>
+				<p class="fragment" style="text-decoration:line-through">JSX</p>
+				<p class="fragment">down-compiled to ES5</p>
+			</section>
+
+
+
+			<section>
+				<h4>Starter-kit</h4>
+				<hr />
+				<p class="fragment">Based on a 3rd party or handmade</p>
+				<p class="fragment">
+					<a target="_blank" href="http://andrewhfarmer.com/starter-project/" />&gt; starter-kit overview</a>
+				</p>
+			</section>
+
+
+			<section>
+				<h4>Publish (1)</h4>
 				<pre class="fragment"><code class="hljs lang-bash" data-trim contenteditable>
 $ npm login
 $ npm publish
@@ -79,36 +98,49 @@ $ npm publish
 }</code></pre>
 			</section>
 			<section>
-				todo npmjs.org example package page
+				<h4>Publish (2)</h4>
+				<p class="fragment"><a href="https://www.npmjs.com/package/react-bootstrap" target="_blank">> cool</a></p>
+				<p class="fragment"><a href="https://books.sonatype.com/nexus-book/reference/npm-private-registries.html" target="_blank">> uncool</a></p>
+			</section>
+
+
+			<section>
+				<h4>Publish (3)</h4>
+				<p class="fragment">Omit unnecessary files</p>
+				<pre class="fragment"><code class="hljs lang-bash" data-trim contenteditable>
+// .npmignore
+index.html
+webpack.*
+.npmignore
+src/index.js</code></pre>
+				<pre class="fragment"><code class="hljs lang-json" data-trim contenteditable>
+// package.json
+{
+  "files": [
+    "/dist/ed-react-components.js",
+	"/lib/Buttons.js",
+	"/lib/Wizard.js",
+	"/lib/Accordion.js",
+	"README.md"
+]}</code></pre>
 			</section>
 
 
 
 
 			<section>
-				<h3>Dependent libraries (1)</h3>
+				<h4>Dependent libraries (1)</h4>
 				<hr/>
 				<p class="fragment">React and ReactDOM as dependencies instead of including them</p>
-				<pre class="fragment"><code class="hljs lang-json" data-trim contenteditable>
-  // webpack.config.js
-  externals: {
-    "react": {
-      "root":"React",
-      "commonjs2":"react",
-      "commonjs":"react",
-      "amd":"react"
-    },
-    "react-dom": {
-      "root":"ReactDOM",
-      "commonjs2":"react-dom",
-      "commonjs":"react-dom",
-      "amd":"react-dom"
-    }
-  }
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// webpack.config.js
+module.exports = {
+  externals: [ 'react', 'react-dom' ]
+}
 </code></pre>
 			</section>
 			<section>
-				<h3>Dependent libraries (2)</h3>
+				<h4>Dependent libraries (2)</h4>
 				<hr/>
 				<p class="fragment">Make dependencies explicite</p>
 				<pre class="fragment"><code class="hljs lang-json" data-trim contenteditable>
@@ -125,22 +157,21 @@ react@>=15.4.1 but none was installed.</code></pre>
 			</section>
 
 			<section>
-				<h3>Minimal footprint (2)</h3>
-				<div>
-					<div class="fragment">
-						#1 bundled
-						<br/>
-						<img alt="small" src="img/dist.png" />
-					</div>
-					<div class="fragment">
-						#2 modular
-						<br/>
-						<img alt="small" src="img/lib.png" />
-					</div>
-				</div>
+				<h4>Bundled version (1)</h4>
+				<p class="fragment">full-blown / big footprint</p>
+				<img class="fragment" alt="dist" src="img/dist.png" />
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>import { Button, Accordion } from 'ed-react-components'</code></pre>
 			</section>
+
 			<section>
-				<h3>Minimal footprint (3)</h3>
+				<h4>Modular version (1)</h4>
+				<p class="fragment">fine-grained / small footprint</p>
+				<img class="fragment" alt="lib" src="img/lib.png" />
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>import Accordion from 'ed-react-components/lib/Accordion'</code></pre>
+			</section>
+
+			<section>
+				<h4>Bundled vs. modular version</h4>
 				<hr/>
 				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
 // App.js
@@ -156,38 +187,77 @@ import Button from 'react-bootstrap/lib/Button'
 				</code></pre>
 				<img class="fragment" alt="small" src="img/small.png" />
 			</section>
+
 			<section>
-				<h4>Minimal usage requirements</h4>
-				<hr/>
-				<p class="fragment" style="text-decoration:line-through">ES6 / ES7</p>
-				<p class="fragment" style="text-decoration:line-through">Typescript / Flow</p>
-				<p class="fragment" style="text-decoration:line-through">JSX</p>
-				<p class="fragment">-> down-compiled to ES5</p>
-			</section>
-			<section>
-				<h3>Implementation - starter-kit</h3>
-				<hr />
-				<p class="fragment">Based on a 3rd party or handmade starter-kit</p>
-				<p class="fragment">
-					<a target="_blank" href="http://andrewhfarmer.com/starter-project/" />&gt; starter-kit overview</a>
-				</p>
-			</section>
-			<section>
-				<h3>Implementation - package.json</h3>
-				<hr />
+				<h4>Bundled version (2)</h4>
+				<p class="fragment">entry point simply re-exports all components</p>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// main.js
+export { default as Button } from './Button'
+export { default as Wizard } from './Wizard'
+export { default as Accordion } from './Accordion'</code></pre>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// webpack.config.js
+module.exports = {
+  entry: path.join(__dirname, "/src/main.js"),
+  output: {
+    path: path.join(__dirname + "/dist/"),
+    filename: "ed-react-components.js",
+    library: "ed-react-components",
+  }
+}</code></pre>
+
 				<pre class="fragment"><code class="hljs lang-json" data-trim contenteditable>
+// package.json
 {
-  "main": "dist/ed-react-components.js",
-  
-  "version": "1.0.7",
-  
-  "scripts": {
-    "webpack:lib": "webpack --config ./webpack.lib.config.js",
-    "webpack:dist": "webpack --config ./webpack.dist.config.js",
-    "prepublish": "npm run webpack:lib && npm run webpack:dist && npm version patch"
+  "main": "dist/ed-react-components.js"
+}</code></pre>
+			</section>
+
+
+			<section>
+				<h4>Modular version (2)</h4>
+				<p class="fragment">multiple entry points</p>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// webpack.config.js
+module.exports = {
+  entry: {
+    'Button': path.join(__dirname, "/src/Button.js"),
+    'Wizard': path.join(__dirname, "/src/Wizard.js"),
+    'Accordion': path.join(__dirname, "/src/Accordion.js")
   },
-}
-				</code></pre>
+  output: {
+    path: path.join(__dirname + "/lib/"),
+    filename: "[name].js",
+    library: ["ed-react-components", "[name]"],
+  }
+}</code></pre>
+			</section>
+
+
+
+			<section>
+				<h4>Universal module definition</h4>
+				<hr />
+				<p class="fragment">usable as CommonJS, AMD and with script-tag</p>
+				<pre class="fragment"><code class="hljs lang-html" data-trim contenteditable>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.1/react-dom.js" type="text/javascript"></script>
+<script src="/node_modules/ed-react-components/dist/ed-react-components.js" type="text/javascript"></script>
+<script type="text/javascript">
+    ReactDOM.render(React.createElement(ed-react-components.Button), document.getElementById('root'))
+</script>
+</code></pre>
+				<pre class="fragment"><code class="hljs lang-javascript" data-trim contenteditable>
+// webpack.config.js
+module.exports = {
+  output: { // ...
+    libraryTarget: "umd"
+  },
+  externals: {
+    'react': { root: 'React', commonjs2: 'react', commonjs: 'react', amd: 'react' }, 
+    'react-dom': { root: 'ReactDOM', commonjs2: 'react-dom', commonjs: 'react-dom', amd: 'react-dom' }, 
+}}}</code></pre>
 			</section>
 
 

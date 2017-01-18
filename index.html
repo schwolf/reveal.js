@@ -21,6 +21,24 @@
 		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 		document.getElementsByTagName('head')[0].appendChild(link);
 	</script>
+
+	<style type="text/css">
+		.arrowed,
+		.thumbuped {
+			background-repeat: no-repeat;
+			background-size: 40px 40px;
+			padding-left: 60px !important;
+		}
+		
+		.arrowed {
+			background-image: url('img/icons/arrow.png');
+		}
+		
+		.thumbuped {
+			background-image: url('img/icons/thumbup.png');
+		}
+	</style>
+
 </head>
 
 <body>
@@ -37,11 +55,11 @@
 			<section>
 				<h4>High level requirements</h4>
 				<hr />
-				<p class="fragment">Easy and familiar installation</p>
-				<p class="fragment">Minimal footprint</p>
-				<p class="fragment">Minimal usage prerequisites</p>
-				<p class="fragment">Explicite prerequisites</p>
-				<p class="fragment">Universal usage</p>
+				<p class="fragment"><span class="thumbuped">Easy and familiar installation</span></p>
+				<p class="fragment"><span class="thumbuped">Minimal footprint</span></p>
+				<p class="fragment"><span class="thumbuped">Minimal usage prerequisites</span></p>
+				<p class="fragment"><span class="thumbuped">Explicite prerequisites</span></p>
+				<p class="fragment"><span class="thumbuped">Universal usage</span></p>
 			</section>
 
 
@@ -64,7 +82,9 @@ import { Button, Wizard } from 'ed-react-components'
 				<p class="fragment" style="text-decoration:line-through">ES6 / ES7</p>
 				<p class="fragment" style="text-decoration:line-through">Typescript / Flow</p>
 				<p class="fragment" style="text-decoration:line-through">JSX</p>
-				<p class="fragment">down-compiled to ES5</p>
+				<p class="fragment">
+					<span class="arrowed">down-compiled to ES5</span>
+				</p>
 			</section>
 
 

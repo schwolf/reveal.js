@@ -23,18 +23,18 @@
 	</script>
 
 	<style type="text/css">
-		.arrowed,
-		.thumbuped {
+		span.arrowed,
+		span.thumbuped {
 			background-repeat: no-repeat;
 			background-size: 40px 40px;
 			padding-left: 60px !important;
 		}
 		
-		.arrowed {
+		span.arrowed {
 			background-image: url('img/icons/arrow.png');
 		}
 		
-		.thumbuped {
+		span.thumbuped {
 			background-image: url('img/icons/thumbup.png');
 		}
 	</style>
@@ -280,6 +280,54 @@ module.exports = {
 }}}</code></pre>
 			</section>
 
+			<section>
+				<h4>React and CSS</h4>
+				<p>Traditional splitting by markup, styling and behavior??</p>
+				<p>Separating concerns by functionality (i.e. component) rather than technology</p>
+				<p><span class="arrowed">Styling also pushed to the component level</span></p>
+				<p><a href="http://survivejs.com/react/advanced-techniques/styling-react">http://survivejs.com/react/advanced-techniques/styling-react</a>
+			</section>
+
+			<section>
+				<h4>React and CSS: approaches</h4>
+				<p>Today the community is relatively fragmented</p>
+				<p><a href="https://github.com/MicheleBertoli/css-in-js">https://github.com/MicheleBertoli/css-in-js</a>
+			</section>
+
+			<section>
+				<h4>React and CSS: Requirements (1)</h4>
+				<ul>
+					<li>No build requirements</li>
+					<li>Small and lightweight</li>
+					<li>Supports global CSS</li>
+					<li>Supports entirety of CSS</li>
+					<li>Colocated</li>
+					<li>Isolated</li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>React and CSS: Requirements (2)</h4>
+				<ul>
+					<li>Doesn’t break inline styles</li>
+					<li>Easy to override</li>
+					<li>Theming</li>
+					<li>Pre-build</li>
+					<li>Server side rendering</li>
+					<li>No wrapper components</li>
+					<li>ReactNative support</li>
+				</ul>
+			</section>
+
+			<section>
+				<h4>styled-components</h4>
+				<p class="fragment"><a href="https://github.com/styled-components/styled-components">https://github.com/styled-components/styled-components</a></p>
+				<p class="fragment">Styles as components</p>
+				<p class="fragment">Real css</p>
+				<p class="fragment">Styles can react to props</p>
+				<p class="fragment">Themable</p>
+				<p class="fragment">Styles are overridable</p>
+			</section>
 
 		</div>
 	</div>
